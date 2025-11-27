@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#4D5878"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="ADIVINA EL NÚMERO"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Guideline to split the screen -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_split"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- Left Panel -->
+
+    <!-- Difficulty Column -->
+    <TextView
+        android:id="@+id/tv_dif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dificultad"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_dif_baja"
+        app:layout_constraintEnd_toStartOf="@+id/btn_reset"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <Button
+        android:id="@+id/btn_dif_baja"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="Baja"
+        app:layout_constraintBottom_toTopOf="@+id/btn_dif_media"
+        app:layout_constraintEnd_toEndOf="@+id/tv_dif"
+        app:layout_constraintStart_toStartOf="@+id/tv_dif"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dif" />
+
+    <Button
+        android:id="@+id/btn_dif_media"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF9800"
+        android:text="Media"
+        app:layout_constraintBottom_toTopOf="@+id/btn_dif_alta"
+        app:layout_constraintEnd_toEndOf="@+id/btn_dif_baja"
+        app:layout_constraintStart_toStartOf="@+id/btn_dif_baja"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dif_baja" />
+
+    <Button
+        android:id="@+id/btn_dif_alta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#F44336"
+        android:text="Alta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_dif_media"
+        app:layout_constraintStart_toStartOf="@+id/btn_dif_media"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dif_media" />
+
+
+    <!-- Actions Column -->
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/btn_historial"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_split"
+        app:layout_constraintStart_toEndOf="@+id/tv_dif"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btn_historial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_reset"
+        app:layout_constraintStart_toStartOf="@+id/btn_reset"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reset" />
+
+    <!-- Right Panel -->
+    <TextView
+        android:id="@+id/tv_instrucciones"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Instrucciones: Inserte el número a adivinar"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/et_numero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_split"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/et_numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="¿Número?"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btn_comprobar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_split"
+        app:layout_constraintTop_toBottomOf="@+id/tv_instrucciones" />
+
+    <Button
+        android:id="@+id/btn_comprobar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Comprobar"
+        app:layout_constraintBottom_toTopOf="@+id/tv_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_split"
+        app:layout_constraintTop_toBottomOf="@+id/et_numero" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Información que podemos otorgar"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_split"
+        app:layout_constraintTop_toBottomOf="@+id/btn_comprobar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

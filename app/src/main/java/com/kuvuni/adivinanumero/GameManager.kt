@@ -20,6 +20,7 @@ class GameManager {
     private var secretNumber = 0
     private var attempts = 0
     var isGameWon = false
+        // El setter es privado: solo esta clase puede modificar su valor.
         private set // El 'set' es privado, así que desde fuera solo se puede leer.
     private lateinit var currentDifficulty: Difficulty
 
@@ -72,9 +73,11 @@ class GameManager {
             guessedNumber < secretNumber -> {
                 "¡Incorrecto! El número es MÁS ALTO. Intentos: $attempts"
             }
+
             guessedNumber > secretNumber -> {
                 "¡Incorrecto! El número es MÁS BAJO. Intentos: $attempts"
             }
+
             else -> { // El número es correcto
                 isGameWon = true
                 "¡Felicidades! ¡Has adivinado el número en $attempts intentos!"

@@ -141,10 +141,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Oculta el teclado virtual.
+     * Oculta el teclado virtual de la pantalla.
+     *
+     * Esta función es una utilidad estándar en Android para mejorar la experiencia
+     * de usuario, forzando el cierre del teclado cuando ya no es necesario
+     * (por ejemplo, después de pulsar un botón).
      */
     private fun hideKeyboard() {
+        // 1. Obtenemos una referencia al servicio del sistema que gestiona los
+        //    métodos de entrada (como teclados). Es el "mánager" de los teclados.
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        // 2. Le pedimos al mánager que oculte el teclado. Para ello, necesita saber
+        //    desde qué ventana ocultarlo.
+        //    - 'currentFocus': Es la vista que tiene el foco actualmente en la pantalla
+        //      (en nuestro caso, probablemente el EditText 'numberInput').
+        //    - 'windowToken': Es un identificador único de la ventana a la que está
+        //      anclada esa vista. Con esto, el sistema sabe exactamente qué
+        //      teclado debe ocultar.
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
+
 }

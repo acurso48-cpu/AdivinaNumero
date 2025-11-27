@@ -26,7 +26,7 @@ Este es un sencillo juego para Android en el que el objetivo es adivinar un núm
 
 1.  **Clona el repositorio**:
     ```bash
-    git clone https://github.com/tu-usuario/AdivinaNumero.git
+    git clone https://github.com/acurso48-cpu/AdivinaNumero.git
     ```
 2.  **Abre el proyecto** en Android Studio.
 3.  **Sincroniza Gradle** y espera a que se descarguen las dependencias.

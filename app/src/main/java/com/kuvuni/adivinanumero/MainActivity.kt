@@ -1,5 +1,6 @@
 package com.kuvuni.adivinanumero
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Fija la orientación de la pantalla a modo vertical mediante programación.
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
